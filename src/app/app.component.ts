@@ -1,3 +1,5 @@
+import { Todo } from './classes/todo';
+import { TodoService } from './services/todo.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  constructor(private todoService: TodoService) { }
 }

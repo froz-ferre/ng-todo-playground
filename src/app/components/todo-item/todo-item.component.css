@@ -1,0 +1,43 @@
+.item {
+    width: 100%;
+    background-color: lightseagreen;
+    box-sizing: border-box;
+    box-shadow: black;
+    margin-bottom: 2%;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.content {
+    width: inherit;
+}
+
+.text {
+    padding-left: 3%;
+    color: white;
+    line-height: 50px;
+    font-size: 20px;
+    width: 70%;
+}
+
+button {
+    position: absolute;
+    right: 0;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    border-left: 2px solid white;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 1.6em;
+    width: 6%;
+    height: 100%;
+}
+
+button:hover {
+    border: none;
+    background-color: white;
+    color: lightseagreen;
+    content: "DELETE";
+}
