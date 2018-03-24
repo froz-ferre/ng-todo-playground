@@ -1,11 +1,9 @@
 <div class="container">
   <ul class="list-group">
-    <!-- <li class="list-group-item" *ngFor="let item for todoListArray"> -->
-      <li class="list-group-item">
+    <li class="list-group-item" *ngFor="let item of todoListArray">
       <span class="hover-cursor" [class.text-success]='item.isChecked' (click)='switchCheck(item.$key, item.isChecked)'>
-        <i class="fa fa-lg fa-circle-thin" [ngClass]='item.isChecked? "fa-check-circle-o":"fa-circle-thin"'></i>
+        <i class="fa fa-lg" [ngClass]='item.isChecked? "fa-check-circle-o":"fa-circle-thin"'></i>
       </span>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, saepe!
       {{ item.task }}
       <span class="hover-cursor text-danger pull-right" (click)='removeTask(item.$key)'>
         <i class="fa fa-trash-o fa-lg"></i>

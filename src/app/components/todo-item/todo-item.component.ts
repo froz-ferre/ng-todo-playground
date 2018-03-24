@@ -14,6 +14,7 @@ export class TodoItemComponent implements OnInit {
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    // get all tasks from database
     this.todoService.getTodos().snapshotChanges()
     .subscribe(item => {
       this.todoListArray = [];
@@ -29,11 +30,11 @@ export class TodoItemComponent implements OnInit {
   }
 
   switchCheck($key, isChecked) {
-    this.todoListArray.checkTask($key, !isChecked);
+    this.todoService.checkTask($key, !isChecked);
   }
 
   removeTask($key) {
-    this.todoListArray.removeTodo($key);
+    this.todoService.removeTodo($key);
   }
 }
 

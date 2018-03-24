@@ -9,30 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoInputComponent implements OnInit {
 
-  todoListArray: any[];
+  taskText: string;
   constructor(private todoService: TodoService) {
     
   }
 
-  ngOnInit() {
+  ngOnInit() { }
 
-    // add item to todo list and sort it by checked
-    this.todoService.getTodos().snapshotChanges()
-    .subscribe(item => {
-      this.todoListArray = [];
-      item.forEach(element => {
-        let x = element.payload.toJSON();
-        x['$key'] = element.key;
-        this.todoListArray.push(x);
-      });
-
-      // sort array by isChecked like false -> true
-      this.todoListArray.sort((a,b) => a.isChecked - b.isChecked)
-    });
-  }
-
-  onAdd(task) {
-    this.todoListArray.addTodo(task);
-    task.value = null;
+  onAdd() {
+    this.todoService.addTodo(this.taskText);
+    this.taskText = null;
   }
 }
