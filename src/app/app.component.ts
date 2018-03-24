@@ -1,4 +1,3 @@
-import { Todo } from './classes/todo';
 import { TodoService } from './services/todo.service';
 import { Component } from '@angular/core';
 

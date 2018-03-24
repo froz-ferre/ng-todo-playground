@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-todo-input',
   templateUrl: './todo-input.component.html',
   styleUrls: ['./todo-input.component.css'],
-  providers: [TodoService]
 })
 export class TodoInputComponent implements OnInit {
 
@@ -32,8 +31,8 @@ export class TodoInputComponent implements OnInit {
     });
   }
 
-  public onAdd(task) {
-    this.todoListArray.addTodo(task.value);
+  onAdd(task) {
+    this.todoListArray.addTodo(task);
     task.value = null;
   }
 }
