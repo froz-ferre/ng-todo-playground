@@ -10,14 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TodoItemComponent implements OnInit {
 
   @Input()
-  private todo: Todo;
+  private todoListArray :any[];
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.todoService.getTodos().snapshotChanges()
+    .subscribe()
   }
 
-  private removeTodo(): void {
-    this.todoService.removeTodo(this.todo.id);
-  }
+  
 }

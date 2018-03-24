@@ -1,5 +1,7 @@
-<div class="todo-input-wrapper">
-  <input type="text" [(ngModel)]=todoText value={{todoText}} placeholder="Input your task here..."/> 
-  <button class="btn btn-primary" (click)="addTodo()">Add</button>
-  <hr>
+<div class="input-group">
+  <input type="text" class="form-control" #task>
+  <div class="input-group-addon hover-cursor" (click)="onAdd(task)">
+    <i class="fa fa-plus-circle fa-2x"></i>
+    <span>huihui</span>
+  </div>
 </div>

@@ -1,37 +1,32 @@
 import { Todo } from './../classes/todo';
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Injectable()
 export class TodoService {
 
-  private todos: Todo[];
-  private nextId: number;
+  todoList: AngularFireList<any>;
 
-  constructor() {
-    this.todos = [
-      new Todo(0, 'First task'),
-      new Todo(1, 'second task'),
-      new Todo(2, 'Third task')
-    ];
+  constructor(private firebasedb: AngularFireDatabase) { }
 
-    this.nextId = 3;
+   addTodo(task: string) {
+       this.todoList.push({
+         task: task,
+         isChecked: false
+       });
    }
 
-   public addTodo(text: string): void {
-     if (text && text !== ' ') {
-       const todo = new Todo(this.nextId, text);
-       this.todos.push(todo);
-       this.nextId++;
-    }
-    return;
+   getTodos() {
+    this.todoList = this.firebasedb.list('tasks');
+    return this.todoList;
+  }
+
+   checkTask($key: string, flag: boolean) {
+     this.todoList.update($key, {isChecked: flag});
    }
 
-   public getTodos(): Todo[] {
-     return this.todos;
-   }
-
-   public removeTodo(id: number): void {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
+   removeTodo($key: string): void {
+    this.todoList.remove($key);
    }
 
 }
